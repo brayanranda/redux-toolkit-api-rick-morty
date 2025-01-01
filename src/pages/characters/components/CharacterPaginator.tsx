@@ -1,6 +1,5 @@
-import React from 'react'
+import { useAppSelector } from '../../../hook/store'
 import { cssBtn } from '../../../utils/cssUtil'
-import { useSelector } from 'react-redux'
 
 interface CharacterPaginatorProps { 
   handlePrevious: () => void
@@ -8,7 +7,7 @@ interface CharacterPaginatorProps {
 }
 
 export default function CharacterPaginator({ handlePrevious, handleNext }: CharacterPaginatorProps) {
-  const { page } = useSelector((state) => state.characters)
+  const { page } = useAppSelector((state) => state.characters)
 
   return (
     <div className='flex justify-between items-center mb-10'>

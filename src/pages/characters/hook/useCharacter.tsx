@@ -1,11 +1,10 @@
-import * as React from 'react';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { changeLoading, saveCharacters, savePage } from '../store/CharacterSlice';
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../../../hook/store';
 
 export const useCharacter = () => {
-    const dispatch = useDispatch()
-    const { characters, loading, page } = useSelector((state) => state.characters)
+    const dispatch = useAppDispatch()
+    const { characters, loading, page } = useAppSelector((state) => state.characters)
 
     const guardarCharacters = async (page = 1) => {
         dispatch(changeLoading(true))
